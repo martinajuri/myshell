@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "errno.h": "c",
+        "commands.h": "c",
+        "unistd.h": "c",
+        "pipe.h": "c",
+        "monitor.h": "c",
+        "limits.h": "c",
+        "utils.h": "c",
+        "cjson.h": "c",
+        "types.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "enabled"
+}

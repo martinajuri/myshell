@@ -1,0 +1,10 @@
+{
+	"metrics":	{
+		"cpu":	false,
+		"memory":	true,
+		"disk_io":	false,
+		"process_count":	true,
+		"context_switches":	false
+	},
+	"sleep_time":	1
+}

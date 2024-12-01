@@ -1,0 +1,4 @@
+[submodule "monitor"]
+	path = monitor
+	url = https://github.com/martinajuri/monitor.git
+	branch = main
