@@ -18,7 +18,7 @@ LDFLAGS = -L$(PROMETHEUS_LIB_DIR) -lprom -pthread -lpromhttp -lcjson
 
 export LD_LIBRARY_PATH := $(PROMETHEUS_LIB_DIR):$(LD_LIBRARY_PATH)
 
-clone_prometheus: check_dependencies
+clone_prometheus: 
 	git clone $(PROMETHEUS_REPO) $(PROMETHEUS_DIR)
 
 modify_source:

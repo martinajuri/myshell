@@ -2,6 +2,7 @@
 #include "monitor.h"
 #include "pipe.h"
 #include "utils.h"
+#include "config_search.h"
 #include <errno.h>
 #include <fcntl.h>
 #include <linux/limits.h>
@@ -304,6 +305,45 @@ void execute_command(char* input)
         return;
     }
 
+    // Handle the 'search_config' command
+    if (strncmp(input, "search_config", 13) == 0) {
+        char* input_copy = strdup(input);
+        if (input_copy == NULL) {
+            perror("strdup");
+            return;
+        }
+
+        char* directory = strtok(input_copy + 14, " ");
+        char* extension = strtok(NULL, " ");
+        if (directory && extension) {
+            search_config_files(directory, extension);
+        } else {
+            fprintf(stderr, "Uso: search_config <directorio> <extensión>\n");
+        }
+
+        free(input_copy);
+        return;
+    }
+
+    // Handle the 'list_config' command
+    if (strncmp(input, "list_config", 11) == 0) {
+        char* input_copy = strdup(input);
+        if (input_copy == NULL) {
+            perror("strdup");
+            return;
+        }
+
+        char* directory = strtok(input_copy + 12, " ");
+        if (directory) {
+            list_config_files(directory);
+        } else {
+            fprintf(stderr, "Usage: list_config <directory>\n");
+        }
+
+        free(input_copy);
+        return;
+    }
+    
     // Check for pipes
     if (strchr(input, '|') != NULL)
     {
